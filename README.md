@@ -4,6 +4,55 @@ A modern, real-time speech recognition application built with OpenAI's Whisper a
 
 ![Demo Screenshot](demo.png)
 
+## Download the Software
+
+- Go to the link [https://github.com/phongthanhbuiit/whisper-realtime-gui/releases/tag/v1.0.0](https://github.com/phongthanhbuiit/whisper-realtime-gui/releases/tag/v1.0.0)
+- Select your operating system and download
+
+![Download Screenshot](imgs/1.jpg)
+
+## Installation Guide on MacOS
+
+- Extract the file `Speech-To-Text-macos.dmg`  
+   ![Installation Screenshot](imgs/2.jpg)
+- Drag and drop into **Applications**
+- Open the `Speech to text` app and start using it
+
+### Fix "cannot open" issue on MacOS
+
+![Cannot Open Error](imgs/3.jpg)
+
+- Click **Cancel**
+- Access **Privacy & Security**
+
+![Privacy & Security Settings](imgs/4.jpg)
+
+- Make sure **Allow applications from** _everywhere_ or _App Store & Known Developers_ is enabled
+- Then open the **Speech to text** app and use normally
+
+#### If the error persists and you still cannot open the app, use the following method:
+
+- Open terminal
+
+`sudo xattr -d com.apple.quarantine /Applications/Speech-to-Text.app`
+
+![Terminal Command](imgs/5.jpg)
+
+- Open and use the app normally
+
+**Note:**
+
+- The system automatically detects the language
+- If you choose a model other than **tiny**, you will need to **wait for the model to download**
+
+### If you want the software to recognize background sound
+
+#### For MacOS
+
+- Select Multi-Output Device setting on MacOS
+
+  ![Multi-Output Device Setting](imgs/6.jpg)
+
 ## Features
 
 - 🎙 Real-time audio transcription using OpenAI's Whisper
@@ -19,6 +68,7 @@ A modern, real-time speech recognition application built with OpenAI's Whisper a
 ## Components
 
 ### 1. Real-time Transcription (`whisper_gui.py`)
+
 - Modern GUI application for real-time speech recognition
 - Dynamic waveform visualization with:
   - Smooth wave transitions
@@ -30,6 +80,7 @@ A modern, real-time speech recognition application built with OpenAI's Whisper a
 - Automatic model initialization
 
 ### 2. File Transcription (`file-to-text.py`)
+
 - Convert audio/video files to text
 - Supports multiple file formats:
   - Audio: mp3, wav, m4a, etc.
@@ -49,25 +100,30 @@ A modern, real-time speech recognition application built with OpenAI's Whisper a
 ## Installation
 
 ### For macOS Users
+
 1. Download the latest `.dmg` file from the [Releases](https://github.com/phongthanhbuiit/whisper-realtime-gui/releases) page
 2. Open the downloaded `.dmg` file
 3. Drag the application to your Applications folder
 4. Double click to run the application
 
 ### For Developers
+
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/phongthanhbuiit/whisper-realtime-gui.git
 cd whisper-realtime-gui
 ```
 
 2. Create and activate a virtual environment:
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 ```
 
 3. Install the required packages:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -84,22 +140,26 @@ pip install -r requirements.txt
 ### Real-time Transcription
 
 1. Activate the virtual environment if not already activated:
+
 ```bash
 source venv/bin/activate  # On macOS/Linux
 ```
 
 2. Run the GUI application:
+
 ```bash
 python whisper_gui.py
 ```
 
-3. Select your preferred model and language from the dropdown menus
+3. Language is automatically detected whenever you start recording
 4. Click "Start Recording" to begin transcription
 5. Speak into your microphone
 6. Watch the beautiful waveform animation and real-time transcription
 
 ### Model Selection
+
 Choose from different Whisper models based on your needs:
+
 - `tiny`: Fastest, lowest accuracy (good for testing)
 - `base`: Good balance of speed and accuracy
 - `small`: Better accuracy, still reasonable speed
@@ -107,21 +167,24 @@ Choose from different Whisper models based on your needs:
 - `large`: Best accuracy, requires more resources
 
 ### Language Support
+
 Currently supports:
-- English
-- Vietnamese
-- French
+
+- Auto detected language
+- Follow all languages that whisper model supports
 
 The language can be changed in real-time during transcription.
 
 ## Performance Tips
 
-1. **Model Selection**: 
+1. **Model Selection**:
+
    - Start with `tiny` or `base` model for testing
    - Use `small` for general use
    - Use `medium` or `large` only if you need highest accuracy
 
 2. **GPU Acceleration**:
+
    - The app automatically uses GPU if available
    - Recommended for `medium` and `large` models
 
@@ -135,10 +198,12 @@ The language can be changed in real-time during transcription.
 If you encounter issues:
 
 1. **Audio Not Detected**:
+
    - Check your microphone permissions
    - Verify input device in system settings
 
 2. **Slow Performance**:
+
    - Try a smaller model
    - Ensure GPU acceleration is working
    - Check CPU/Memory usage
